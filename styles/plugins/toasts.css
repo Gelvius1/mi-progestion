@@ -1,0 +1,131 @@
+.toasts-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
+  z-index: 100;
+
+  .toast {
+    position: relative;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 50rem;
+    min-width: auto;
+    height: 35px;
+    border-radius: 0.3rem;
+    padding: 0.4rem;
+    margin-bottom: 7px;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: toast-opening var(--transition-duration) ease-in-out forwards;
+    overflow: hidden;
+	border: none;
+
+    &.success {
+    background-color: var(--green);
+    }
+
+    &.system {
+    background-color: var(--blue);
+    }
+
+    &.warning {
+    background-color: var(--yellow);
+    }
+
+    &.error {
+    background-color: var(--red);
+    }
+
+    & .t-icon {
+    margin-right: 1rem;
+    margin-left: 0.6rem;
+    svg {
+		fill: var(--white);
+		width: 16px;
+		height: 16px;
+      }
+    }
+
+    & .t-message {
+    margin-right: 1.2rem;
+    color: var(--white);
+    line-height: 2rem;
+    font-size: clamp(0.87rem, 0.8vw, 0.3rem);
+    font-weight: lighter;
+    }
+
+    & .t-close {
+    svg {
+        fill: var(--white);
+        opacity: 1;
+        width: 0.4rem;
+        height: 0.4rem;
+        transition: opacity var(--transition-duration);
+        cursor: pointer;
+        @media (hover: hover) {
+          opacity: 0.5;
+        }
+
+        &:
+        hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    & .t-progress-bar {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    border-radius: 0 0 0 0.5rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    animation: progress-bar-animation linear forwards var(--toast-duration, 3000ms);
+    transform-origin: left;
+    }
+  }
+
+  .toast:not(.active) {
+    animation-name: toast-closing;
+    animation-duration: 0.35s;
+  }
+}
+
+@keyframes toast-opening {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes toast-closing {
+  0% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  75% {
+    max-height: 15rem;
+    padding: 2.4rem;
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    max-height: 0;
+    padding: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes progress-bar-animation {
+  to {
+    transform: scaleX(0);
+  }
+}

@@ -1,0 +1,151 @@
+.flatpickr-input[readonly] {
+    cursor: revert;
+}
+
+.numInputWrapper span{
+	&.arrowDown {
+		top: 62%;
+		left: 70px;
+		border: 0;
+		transition: 1s ease;
+	}
+
+	&.arrowUp {
+		top: -3px;
+		border: 0;
+		left: 70px;
+		transition: 1s ease;
+	}	
+}
+
+.flatpickr-calendar {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+
+	&.hasTime .flatpickr-time {
+		border-top: none;
+	}
+
+	&.arrowTop{
+		&:before {
+			display: none;
+		}
+		&:after {
+			display: none;
+		}
+	}
+}
+
+.flatpickr-time{
+	&.ss {
+		background: var(--success-color);
+		border-radius: 4px;
+		
+		& input:hover {
+			background: var(--success-color);
+			transition: 1.5s ease;
+		}
+		& .numInputWrapper span{
+			&.arrowUp{
+				&:hover{
+					background-color: #5cbc8f5c;
+				}
+			}
+			&.arrowDown{
+				&:hover{
+					border-radius: 1rem;
+					width: 12px;
+					height: 11px;
+					margin-top: 3px;
+					transition: 1s ease;
+					background-color: #5cbc8f5c;					
+				}
+			}
+		}
+	}
+	&.wg {
+		background: var(--warning-color);
+		border-radius: 4px;
+		
+		& input:hover{
+			background: var(--warning-color);
+			transition: 1.5s ease;			
+		}
+		& .numInputWrapper span{
+			&.arrowUp{
+				&:hover{
+					background-color: #cfc5a85c;
+				}
+			}
+			&.arrowDown{
+				&:hover{
+					background-color: #bcab5c5c;
+				}
+			}
+		}
+	}
+	& input.flatpickr-hour {
+		font-weight: unset
+	}
+	& .flatpickr-time-separator, .flatpickr-time .flatpickr-am-pm {
+		color: white;
+	}
+	& .numInputWrapper span {
+		&.arrowUp{
+			&:after{
+				border-bottom-color: #f2f8f673
+			}
+			&:hover{
+				border-radius: 1rem;
+				width: 12px;
+				height: 11px;
+				margin-top: 3px;
+				transition: 1s ease;				
+			}
+			&:active{
+				background-color: transparent;
+				transition: 0.1s ease;				
+			}
+			&:hover:after{
+				border-bottom-color: #f2f8f6c4;
+				transition: 0.5s ease;
+			}
+		}
+		&.arrowDown{
+			&:after{
+				border-top-color: #f2f8f673;
+			}
+			&:active{
+				background-color: transparent;
+				transition: 0.1s ease;				
+			}
+			&:hover:after{
+				border-top-color: #f2f8f6c4;
+				transition: 0.5s ease;				
+			}
+			&
+		}
+	}
+	& input{
+		background: transparent;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		border: 0;
+		border-radius: 0;
+		text-align: center;
+		margin: 0;
+		padding: 0;
+		height: inherit;
+		line-height: inherit;
+		color: #ffffff;
+		font-size: 15px;
+		font-family: var(--font-sans-serif-roboto);
+		position: relative;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		-webkit-appearance: textfield;
+		-moz-appearance: textfield;
+		appearance: textfield;
+		cursor: default;		
+	}
+}

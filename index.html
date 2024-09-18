@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progestion - Gestión de tiempo</title>
+
+    <meta name="description" content="Progestión es una herramienta de gestión de tiempo que te ayuda a organizar y optimizar tu día a día de manera eficiente.">
+    <meta name="keywords" content="gestión de tiempo, productividad, organización, herramientas de gestión, eficiencia">
+    <meta name="author" content="bigfndp">
+    <meta name="robots" content="index, follow">
+
+    <meta name="theme-color" content="#0dcaf0">
+
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+
+	<link rel="stylesheet" href="styles/style.css?v=1.1">
+
+	<link rel="stylesheet" href="//use.fontawesome.com/releases/v6.5.1/css/all.css">
+
+	<script src="//code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+	
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	
+  </head>
+  <body>
+
+    <div class="loader">
+        <div class="ball-scale">
+          <div></div>
+        </div>
+    </div>
+
+	<div class="d-flex mx-4 my-4">
+		<div class="figure" data-id-area="0">
+		  <div class="barOverflow" data-toggle="tooltip">
+			<div class="bar safica"></div>
+		  </div>
+		  <span class="filter-link">
+			<!-- Contenido dinámico  -->
+		  </span>%
+		</div>
+
+		<div class="figure" data-id-area="1">
+		  <div class="barOverflow" data-toggle="tooltip">
+			<div class="bar sameal"></div>
+		  </div>
+		  <span class="filter-link">
+			<!-- Contenido dinámico  -->
+		  </span>%
+		</div>
+
+		<div class="figure" data-id-area="2">
+		  <div class="barOverflow" data-toggle="tooltip">
+			<div class="bar reines"></div>
+		  </div>
+		  <span class="filter-link">
+			<!-- Contenido dinámico  -->
+		  </span>%
+		</div>
+
+		<div class="figure" data-id-area="3">
+		  <div class="barOverflow" data-toggle="tooltip">
+			<div class="bar esaceo"></div>
+		  </div>
+		  <span class="filter-link">
+			<!-- Contenido dinámico  -->
+		  </span>%
+		</div>
+		
+		<div class="figure" data-id-area="4">
+		  <div class="barOverflow" data-toggle="tooltip">
+			<div class="bar defiro"></div>
+		  </div>
+		  <span class="filter-link">
+			<!-- Contenido dinámico  -->
+		  </span>%
+		</div>
+
+		<div class="figure" data-id-area="5">
+		  <div class="barOverflow" data-toggle="tooltip">
+			<div class="bar edenal"></div>
+		  </div>
+		  <span class="filter-link">
+			<!-- Contenido dinámico  -->
+		  </span>%
+		</div>
+	</div>	
+	
+	<div class="d-flex my-4 mx-4">
+		<ul class="px-1">
+			<li class="py-0-25 br-2 fs-7-2 fw-1 d-inline-block px-1 text-white filter-tag all hidden">
+				Mostrar todo
+				<span class="va-1 fs-7 fa fa-xmark close-filter"></span>
+			</li>
+			<li class="py-0-25 br-2 fs-7-2 fw-1 d-inline-block px-1 text-white filter-tag actint hidden">
+				Intervalo activo
+				<span class="va-1 fs-7 fa fa-xmark close-filter"></span>
+			</li>			
+			<li class="py-0-25 br-2 fs-7-2 fw-1 d-inline-block px-1 text-white filter-tag block hidden">
+				Intervalo '<span id="activeInterval"><!-- Contenido dinámico  --></span>'
+				<span class="va-1 fs-7 fa fa-xmark close-filter"></span>
+			</li>			
+			<li class="py-0-25 br-2 fs-7-2 fw-1 d-inline-block px-1 text-white filter-tag ocasional hidden">
+				Tareas ocasionales
+				<span class="va-1 fs-7 fa fa-xmark close-filter"></span>
+			</li>
+			<li class="py-0-25 br-2 fs-7-2 fw-1 d-inline-block px-1 text-white filter-tag periodico hidden">
+				Tareas periódicas
+				<span class="va-1 fs-7 fa fa-xmark close-filter"></span>
+			</li>			
+			<li class="py-0-25 br-2 fs-7-2 fw-1 d-inline-block px-1 text-white filter-tag unasigned hidden">
+				Tareas desasignadas
+				<span class="va-1 fs-7 fa fa-xmark close-filter"></span>
+			</li>			
+			<li class="py-0-25 br-2 fs-7-2 fw-1 d-inline-block px-1 text-white filter-tag safica hidden">
+				Salud física
+				<span class="va-1 fs-7 fa fa-xmark close-filter"></span>
+			</li>			
+			<li class="py-0-25 br-2 fs-7-2 fw-1 d-inline-block px-1 text-white filter-tag sameal hidden">
+				Salud mental/emocional
+				<span class="va-1 fs-7 fa fa-xmark close-filter"></span>
+			</li>			
+			<li class="py-0-25 br-2 fs-7-2 fw-1 d-inline-block px-1 text-white filter-tag reines hidden">
+				Relaciones interpersonales
+				<span class="va-1 fs-7 fa fa-xmark close-filter"></span>
+			</li>			
+			<li class="py-0-25 br-2 fs-7-2 fw-1 d-inline-block px-1 text-white filter-tag esaceo hidden">
+				Carrera/empleo
+				<span class="va-1 fs-7 fa fa-xmark close-filter"></span>
+			</li>			
+			<li class="py-0-25 br-2 fs-7-2 fw-1 d-inline-block px-1 text-white filter-tag defiro hidden">
+				Desarrollo financiero
+				<span class="va-1 fs-7 fa fa-xmark close-filter"></span>
+			</li>			
+			<li class="py-0-25 br-2 fs-7-2 fw-1 d-inline-block px-1 text-white filter-tag edenal hidden">
+				Educación/desarrollo personal
+				<span class="va-1 fs-7 fa fa-xmark close-filter"></span>
+			</li>						
+			<li class="filter-tag reset active">
+				<div class="reload active">
+				  <svg xmlns="https://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M12.011 20c0-0.002 0-0.003 0-0.005 0-4.421 3.578-8.005 7.991-8.005 2.683 0 5.051 1.329 6.5 3.361l1.26-1.644c-1.834-2.254-4.627-3.696-7.76-3.696 -5.519 0-9.994 4.471-10.001 9.989H8.013l3.018 4.013L13.987 20H12.011zM32 20l-2.969-3.985L26 20h1.992c-0.003 4.419-3.579 8.001-7.99 8.001 -2.716 0-5.111-1.36-6.555-3.435l-1.284 1.644c1.832 2.314 4.66 3.803 7.84 3.803 5.524 0 10.001-4.478 10.001-10.001 0-0.004-0.001-0.008-0.001-0.012H32z"/>
+				  </svg>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+    <div class="d-flex mt-2">
+      <div class="container-fluid col-md-9">
+        <table class="table col-1 main">
+          <tbody>
+            <tr class="b-0">
+              <td class="w-41 pt">
+                <div class="scrolleable">
+                  <table class="table table-success sortable" id="hacer">
+                    <thead>
+                      <tr>
+                        <th class="b-1 fw-4 text-center" id="dodata" scope="col"
+                          colspan="2">Hacer</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Contenido dinámico  -->
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+              <td class="w-41 pt">
+                <div class="scrolleable">
+                  <table class="table table-info sortable" id="programar">
+                    <thead>
+                      <tr>
+                        <th class="b-1 fw-4 text-center" id="pmdata" scope="col"
+                          colspan="2">Programar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Contenido dinámico  -->
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+            <tr class="b-0">
+              <td class="w-41 ptb">
+                <div class="scrolleable">
+                  <table class="table table-warning sortable" id="delegar">
+                    <thead>
+                      <tr>
+                        <th class="b-1 fw-4 text-center" id="dedata" scope="col"
+                          colspan="2">Delegar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Contenido dinámico  -->
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+              <td class="w-41 ptb">
+                <div class="scrolleable">
+                  <table class="table table-danger sortable" id="eliminar">
+                    <thead>
+                      <tr>
+                        <th class="b-1 fw-4 text-center" id="eedata" scope="col"
+                          colspan="2">Eliminar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Contenido dinámico  -->
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="container-fluid col-md-3">
+        <table class="table col-1 timebloxing">
+          <thead>
+            <tr>
+              <th class="fw-4 fs-6 text-uppercase text-center" scope="col"
+                data-target="1">Activo</th>
+              <th class="fw-4 fs-6 text-uppercase text-center" scope="col"
+                data-target="2">Administrar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-content="1" class="timebloxing">
+              <td class="w-50 pt-2 pb-0 b-h" colspan="2">
+                <div class="d-flex align-items-baseline">
+                  <p class="fw-4 fs-4 mb-0 mr-2">
+                    <!-- Contenido dinámico -->
+                  </p>
+                  <p class="fw-7 fs-9 mb-0 ">
+                    <small class="text-success text-uppercase">
+                      &nbsp;
+                      <i class="fa fa-arrow-up"></i>
+                      <span id="startHour" title>
+                        <!-- Contenido dinámico -->
+                      </span>hs. -
+                      <span id="endHour" title>
+                        <!-- Contenido dinámico -->
+                      </span>hs.
+                    </small>
+                  </p>
+                </div>
+              </td>
+            </tr>
+            <tr data-content="1" class="timebloxing">
+              <td class="w-50 pt-0 pb-4 b-h" colspan="2">
+                <h1 class="text-uppercase fs-8 fw-4 my-1">Areas sincronizadas:
+                </h1>
+                <!-- Contenido dinámico -->
+              </td>
+            </tr>
+            <tr data-content="2" class="tw-nw hidden">
+              <td class="w-50 pt-2 pb-0 b-h" colspan="2">
+                <div class="d-flex align-items-baseline">
+                  <p class="fw-4 fs-4 mb-0 mr-2" id="info">Intervalos</p><br>
+                  <p class="fw-7 fs-9 mb-0">
+                    <small class="filter-tag timebloxing info text-uppercase">&nbsp;
+                      <i class="fa fa-check"></i>&nbsp;Consultar
+                    </small>
+                  </p>
+                </div>
+              </td>
+            </tr>
+            <tr data-content="2" class="timebloxing hidden tw-nw main">
+              <td colspan="2" class="b-h py-1">
+                <div class="overflow-limit sortable">
+                  <!-- Contenido dinámico -->
+                </div>
+              </td>
+            </tr>
+            <tr data-content="2" class="tw-nw hidden"
+              style="max-height:100px; overflow-y: hidden;">
+              <td class="b-h" colspan="2">
+                <span
+                  class="py-1 fs-7-2 fw-7 br-3 d-inline-block px-4 br-1 text-uppercase filter-tag timebloxing success">
+                  <i class="fa fa-plus"></i>
+                  &nbsp;Agregar
+                </span>
+                <span
+                  class="py-1 fs-7-2 fw-7 br-3 d-inline-block px-2 br-1 text-uppercase filter-tag timebloxing danger">
+                  <i class="fa fa-minus"></i>
+                  &nbsp;Eliminar
+                </span>
+                <span
+                  class="py-1 fs-7-2 fw-7 br-3 d-inline-block px-2 br-1 text-uppercase filter-tag timebloxing warning">
+                  <i class="fa fa-pen"></i>
+                  &nbsp;Modificar
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="//unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js"></script>
+	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/flatpickr"></script>	
+	
+    <script src="lib/common/generic-ajax.js"></script>
+    <script src="lib/index.js?v=1.1" type="module"></script>
+  </body>
+</html>

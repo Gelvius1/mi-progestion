@@ -1,0 +1,89 @@
+.pt {
+    padding: 0 8px 8px 8px !important
+}
+
+.ptb {
+    padding: 10px 8px 8px 8px !important
+}
+
+.statChange {
+    padding: 7.2px 7.5px;
+    margin: 1px 2px;
+    border: 1px solid rgb(68 59 49);
+}
+
+.mt--2 {
+    margin-top: -1px;
+}
+
+.scrolleable {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 160px;
+    padding: 1px;
+}
+
+.pretext {
+    cursor: pointer !important;
+}
+
+.table {
+    > :not(caption) > * > .td-data {
+        background-color: #ffffff00;
+        --bs-table-accent-bg: #ffffff00;
+    }
+}
+
+.td-data {
+    padding: .2rem .5rem !important;
+    font-size: unset;
+    border-bottom-color: transparent;
+    word-break: break-all;
+	
+    &.td-header {
+	    text-wrap: nowrap;
+	    padding: 3px 18px !important;
+    }
+	
+	&.disabled{
+		border-bottom-color: transparent !important;
+		color: #c1c0bf !important;
+		cursor: default !important;		
+		pointer-events: none;
+	}
+}
+
+.td-header {
+    cursor: grab;
+    user-select: none;
+    transition: 0.5s ease;
+
+	&:hover {
+		background: #e7e7e775 !important;
+		transition: 0.5s ease
+	}
+
+	&.last {
+		cursor: default;
+		user-select: none;
+	
+		&:hover {
+			background: transparent !important;
+		}	
+	}
+
+	&.disabled{
+		border-bottom-color: transparent !important;
+		color: #c1c0bf !important;
+		cursor: default !important;		
+	}
+	
+	&.pretext:hover {
+		background-color: #e7e7e7e3 !important;
+		transition: 0.5s ease;
+	}
+}
+
+.cursor-default {
+    cursor: default;
+}

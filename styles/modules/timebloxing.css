@@ -1,0 +1,423 @@
+@import url('//unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.css');
+@import url('//cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css');
+
+@import url('../plugins/multiselect.css');
+@import url('../plugins/flatpickr.css');
+
+.mb-23{
+	margin-bottom: 2.3rem;
+}
+
+.disabled {
+    border-bottom-color: #4d4d58 !important;
+    color: var(--gray-color) !important;
+    cursor: default !important;
+}
+
+[data-content="2"].active {
+    display: table-row !important;
+}
+
+.b-h {
+    border-bottom: transparent;
+}
+
+.text-success {
+    text-wrap: nowrap;
+}
+
+.overflow-limit {
+	text-wrap: wrap;
+    max-height: 265px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.table-success {
+    --bs-table-bg: #64c8a16b;
+}
+
+.table-info {
+    --bs-table-bg: #6493c86b;
+}
+
+.table-warning {
+    --bs-table-bg: #c8b6646b;
+}
+
+.table-danger {
+    --bs-table-bg: #c864646b;
+}
+
+.input-container {
+    position: relative;
+}
+
+span#intervalNameValidation,
+span#horaStartValidation,
+span#horaEndValidation,
+span#selectAreasValidation {
+    position: absolute;
+    font-size: 13px;
+    left: 3px;
+    font-weight: 400;
+    color: var(--error-validation-color);
+}
+
+span#intervalNameValidation,
+span#horaStartValidation,
+span#horaEndValidation {
+    top: 64px;
+}
+
+span#selectAreasValidation {
+    top: 40px;
+}
+
+.selectError {
+    border: 1px solid var(--error-validation-color);
+    color: green;
+}
+
+.timebloxing{
+	&.active {
+		display: table-row!important;
+	}
+
+	& th.active {
+		cursor: pointer;
+		border: 1px solid #31313ed9;
+		color: #31313ed9;
+		background: #eeeeee;
+		display: table-cell !important;
+	}
+
+	& th:hover {
+		cursor: pointer;
+		transition: 1s ease;
+		border-bottom: 1px solid black
+	}
+}
+
+.form-check-input {
+    border: 1px solid var(--orange-black-color);
+	
+	&:focus {
+		box-shadow: none;
+		border: 1px solid var(--orange-black-color);
+	}
+
+	&:checked {
+		background-color: #505050;
+		border-color: black;
+	}
+}
+
+.filter-tag {
+	&.sincronizado{
+		background: transparent;
+		color: var(--gray-color);
+		border: 1px solid var(--gray-color);
+		font-weight: 300;		
+	}
+	&.timebloxing {
+		background: transparent;
+		color: var(--gray-color);
+		border: 1px solid var(--gray-color);
+		transition: 0.5s ease;
+
+		&.success{
+			&:hover {
+				background: transparent;
+				color: var(--success-color) !important;
+				border: 1px solid var(--success-color);
+				transition: 0.5s ease;
+				cursor: pointer;
+			}
+
+			&:active {
+				background: var(--success-color);
+				color: white !important;
+				transition: 0.1s ease;
+				user-select: none;
+			}	
+		}
+		&.danger{
+			&:hover {
+				background: transparent;
+				color: var(--danger-color) !important;
+				border: 1px solid var(--danger-color);
+				transition: 0.5s ease;
+				cursor: pointer;
+			}
+
+			&:active {
+				background: var(--danger-color);
+				color: white !important;
+				transition: 0.1s ease;
+				user-select: none;
+			}	
+		}
+		&.info {
+			border: none !important;
+			color: #0dcaf0;
+			
+			&:hover {
+				background: transparent;
+				color: #0dcaf082 !important;
+				transition: 0.5s ease;
+				cursor: pointer;
+			}
+
+			&:active {
+				background: transparent;
+				color: #0dcaf042 !important;
+				transition: 0.1s ease;
+				user-select: none;
+			}	
+			&.disabled{
+				background: transparent;
+				border: 0 !important;
+				color: #8decffab !important;
+				transition: 0.5s ease;
+				cursor: pointer;
+				
+				&:hover {
+					background: transparent;
+					color: #0dcaf038 !important;
+					border: 0 !important;
+					transition: 0.5s ease;
+					cursor: pointer;
+				}			
+			}
+		}
+		&.warning{
+			&:hover {
+				background: transparent;
+				color: #ffc107 !important;
+				border: 1px solid #ffc107;
+				transition: 0.5s ease;
+				cursor: pointer;
+			}
+
+			&:active {
+				background: #ffc107;
+				color: white !important;
+				transition: 0.1s ease;
+				user-select: none;
+			}		
+		}
+		&.disabled{
+			color: var(--faded-gray-color) !important;
+			border: 1px solid var(--faded-gray-color) !important;
+			background: transparent;
+			transition: 0.5s ease;
+			user-select: none;
+			
+			&:hover{
+				color: #86848238 !important;
+				border: 1px solid #86848238 !important;
+				background: transparent;
+				transition: 0.5s ease;
+				user-select: none;			
+			}
+		}
+	}
+}
+
+.clear-input {
+    position: absolute;
+    top: 68%;
+    right: 10px;
+    font-size: 8px;
+    transform: translateY(-50%);
+    color: #757171;
+    padding: 0px 3px;
+    cursor: text;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.8s ease;
+	
+	&.ss{
+		&:hover{
+			background: var(--success-color);
+			color: white;
+			border-radius: 10px;
+			transition: 0.8s ease;			
+		}
+		&:active{
+			background: transparent;
+			color: white;
+			transition: 0.1s ease;			
+		}
+	}
+	&.wg{
+		&:hover{
+			background: var(--warning-color);
+			color: white;
+			border-radius: 10px;
+			transition: 0.8s ease;			
+		}
+		&:active{
+			background: transparent;
+			color: white;
+			transition: 0.1s ease;			
+		}
+	}
+}
+
+.tw-alike-submit {
+    width: 19%;
+    line-height: 2;
+    padding: .2rem .5rem;
+    border-radius: .23rem;
+    font-size: 12px;
+    text-transform: uppercase;
+    border: 1.2px solid #b3b9c2;
+    color: #666262e6;
+
+	&.ss{
+		border: 1.2px solid var(--success-color);
+		color: #ffffff;
+		background: var(--success-color);
+		transition: 0.1s ease;
+		
+		&:active:focus{
+			border: 1.2px solid #176e46;
+			color: #ffffff;
+			background: #176e46;
+			transition: 0.1s ease			
+		}
+		
+		&:hover{
+			border: 1.2px solid var(--success-color);
+			color: var(--success-color);
+			background: #fff;
+			transition: 0.2s ease			
+		}
+	}
+	&.wg{
+		border: 1.2px solid var(--warning-color);
+		color: #ffffff;
+		background: var(--warning-color);
+		transition: 0.1s ease;
+		
+		&:active:focus{
+			border: 1.2px solid #b18b15;
+			color: #ffffff;
+			background: #b18b15;
+			transition: 0.1s ease;
+		}
+		&:hover{
+			border: 1.2px solid var(--warning-color);
+			color: var(--warning-color);
+			background: #fff;
+			transition: 0.2s ease			
+		}
+	}
+}
+
+.placeholder-label {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(0%);
+    color: #737780d4;
+    transition: all .1s linear;
+    pointer-events: none;
+    background: white;
+    padding: 0 3px;
+    z-index: 1;
+    font-weight: 400;
+
+	&.select{
+		top: 19%;
+	}
+}
+
+.tw-alike-input {
+    width: 100%;
+    line-height: 2.15;
+    padding: .05rem 1.7rem .05rem .5rem;
+    border-radius: .23rem;
+    border: 1.2px solid #b3b9c2;
+    color: #666262e6;
+	
+	&:focus{
+		outline: none;
+	}
+	&.ss {
+		&:focus + .placeholder-label {
+			color: var(--success-color);
+		}
+		&:focus{
+			border: 2px solid var(--success-color);
+		}
+	}	
+	&.wg {
+		&:focus + .placeholder-label {
+			color: var(--warning-color);
+		}
+		&:focus{
+			border: 2px solid var(--warning-color);
+		}
+	}
+	&:focus + .placeholder-label,
+	&:not(:placeholder-shown) + .placeholder-label {
+		top: 0;
+		left: 7px;
+		transform: translateY(50%) translateY(0.4rem);
+		font-size: 12px;
+	}	
+}
+
+li {
+    input {
+        display: none;
+
+        &:checked + span:before {
+            background-image: url("../../img/icons/checkmark.png");
+            transition: 0.2s ease;
+
+            img {
+                filter: invert(1);
+            }
+        }
+    }
+
+    input + span:before {
+        float: left;
+        content: '';
+        background-color: transparent;
+        border: 1px solid #b3b9c2;
+        padding: 8px;
+        background-repeat: no-repeat;
+        background-size: 15px;
+        display: block;
+        width: 15px;
+        height: 15px;
+        margin-left: -26px;
+        margin-top: 2px;
+        border-radius: 4px;
+    }
+
+    input:checked + span.ss:before,
+    input:checked + span.wg:before {
+        background-color: var(--success-color);
+        border-color: var(--success-color);
+    }
+
+    input:checked + span.wg:before {
+        background-color: var(--warning-color);
+        border-color: var(--warning-color);
+    }
+}
+
+span#interval-info:hover,  input.form-check-input:hover {
+    cursor: pointer; 
+}
+
+.overflow-limit .ui-sortable-placeholder {
+	display: none !important;
+}

@@ -1,0 +1,6 @@
+.tooltip-inner {
+    color: black !important;
+    background-color: white !important;
+    border: 1px solid black !important;
+    padding: 1px 5px !important;
+}

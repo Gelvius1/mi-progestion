@@ -1,0 +1,68 @@
+.ms-parent {
+    display: contents;
+}
+
+.placeholder-label.select.focused {
+    top: -0.9rem;
+    left: 7px;
+    transform: translateY(50%) translateY(-0.1rem);
+    font-size: 12px;
+}
+
+.ms-choice {
+    margin-top: 1.5rem;
+    height: 2.4rem;
+    line-height: 2.4rem;
+	
+	&>span {
+		color: #666262e6;
+	}
+	&.ss:active{
+		border: 2px solid var(--success-color);
+		transition: 0.01s ease;
+	}
+	&>div.icon-caret {
+		right: 12px;
+		transition: 0.2s ease;
+		filter: opacity(0.6);
+		opacity: 0;
+		
+		&.open{
+			transition: 0.2s ease;
+		}
+	}
+	&:hover>div.icon-caret{
+		opacity: 1;
+		transition: 0.1s ease;
+		color: red;
+	}	
+}
+
+.ms-drop {
+    opacity: 0;
+    transition: opacity 0.3s ease;	
+    width: auto;
+    background: #fff;
+    color: #666262e6;
+    margin-top: 0px;
+    border: 1.2px solid #b3b9c2;
+    border-radius: .23rem;
+	
+	&.open{
+		opacity: 1;
+	}
+	&.bottom{
+		box-shadow: none;
+	}
+	& ul>li{
+		padding: .25rem 13px;
+		
+		&:hover{
+			background-color: #aaaaaa17;
+		}
+	}
+	& input[type="radio"], & input[type="checkbox"] {
+		transform: scale(1.2);
+		margin-left: -1.45rem;		
+	}
+}
